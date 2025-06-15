@@ -691,7 +691,680 @@
                 </div>
             </div>
         </div>
-    </footer>
+        </footer>
+
+
+        /* Custom CSS Animations and Styles */
+:root {
+    --lavender-50: #f8f7ff;
+    --lavender-100: #ede9fe;
+    --lavender-200: #ddd6fe;
+    --lavender-300: #c4b5fd;
+    --lavender-400: #a78bfa;
+    --lavender-500: #8b5cf6;
+    --lavender-600: #7c3aed;
+    --lavender-700: #6d28d9;
+    --cream-50: #fffef7;
+    --cream-100: #fffbeb;
+    --rose-50: #fff1f2;
+    --rose-500: #f43f5e;
+    --rose-600: #e11d48;
+    --lightgold-500: #f59e0b;
+    --lightgold-600: #d97706;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream-50);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--lavender-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lavender-600);
+}
+
+/* Fade in animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Delay classes */
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-600 {
+    transition-delay: 0.6s;
+}
+
+.delay-800 {
+    transition-delay: 0.8s;
+}
+
+.delay-1000 {
+    transition-delay: 1s;
+}
+
+/* Hero background animation */
+@keyframes heroZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+#hero-bg {
+    animation: heroZoom 20s ease-out infinite alternate;
+}
+
+/* Custom button hover effects */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Floating animation for scroll indicator */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.text-shimmer {
+    background: linear-gradient(90deg, #374151 25%, #8b5cf6 50%, #374151 75%);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--lavender-600), var(--rose-500));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom focus styles */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Navbar background on scroll */
+.navbar-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu slide animation */
+.mobile-menu-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-enter-active {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* Section dividers */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lavender-200), transparent);
+    margin: 2rem 0;
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    border: 3px solid var(--lavender-200);
+    border-top: 3px solid var(--lavender-600);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+/* Image overlay effects */
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 63, 94, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+    opacity: 1;
+}
+
+/* Typography enhancements */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .bg-gradient-to-br {
+        background: white !important;
+        border: 2px solid #000 !important;
+    }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles would go here */
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+    .fade-in-up, .fade-in-left, .fade-in-right {
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    * {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-tablet-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1024px) {
+    /* Enhanced hover effects for desktop */
+    .desktop-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+}
+/* Custom CSS Animations and Styles */
+:root {
+    --lavender-50: #f8f7ff;
+    --lavender-100: #ede9fe;
+    --lavender-200: #ddd6fe;
+    --lavender-300: #c4b5fd;
+    --lavender-400: #a78bfa;
+    --lavender-500: #8b5cf6;
+    --lavender-600: #7c3aed;
+    --lavender-700: #6d28d9;
+    --cream-50: #fffef7;
+    --cream-100: #fffbeb;
+    --rose-50: #fff1f2;
+    --rose-500: #f43f5e;
+    --rose-600: #e11d48;
+    --lightgold-500: #f59e0b;
+    --lightgold-600: #d97706;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream-50);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--lavender-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lavender-600);
+}
+
+/* Fade in animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Delay classes */
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-600 {
+    transition-delay: 0.6s;
+}
+
+.delay-800 {
+    transition-delay: 0.8s;
+}
+
+.delay-1000 {
+    transition-delay: 1s;
+}
+
+/* Hero background animation */
+@keyframes heroZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+#hero-bg {
+    animation: heroZoom 20s ease-out infinite alternate;
+}
+
+/* Custom button hover effects */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Floating animation for scroll indicator */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.text-shimmer {
+    background: linear-gradient(90deg, #374151 25%, #8b5cf6 50%, #374151 75%);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--lavender-600), var(--rose-500));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom focus styles */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Navbar background on scroll */
+.navbar-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu slide animation */
+.mobile-menu-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-enter-active {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* Section dividers */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lavender-200), transparent);
+    margin: 2rem 0;
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    border: 3px solid var(--lavender-200);
+    border-top: 3px solid var(--lavender-600);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+/* Image overlay effects */
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 63, 94, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+    opacity: 1;
+}
+
+/* Typography enhancements */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .bg-gradient-to-br {
+        background: white !important;
+        border: 2px solid #000 !important;
+    }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles would go here */
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+    .fade-in-up, .fade-in-left, .fade-in-right {
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    * {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-tablet-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1024px) {
+    /* Enhanced hover effects for desktop */
+    .desktop-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+}
+
 
     <!-- Scripts -->
     <script src="script.js"></script>
